@@ -50,9 +50,9 @@
 <?php $__env->stopSection(); ?>
 
 
+
 <?php $__env->startSection('scripts'); ?>
     
-
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.components.js_dep', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('admin.components.css_dep', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

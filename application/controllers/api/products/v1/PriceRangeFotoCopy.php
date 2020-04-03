@@ -9,4 +9,8 @@ class PriceRangeFotoCopy extends CI_Controller{
     public function index(){
         echo json_encode(["status" => "Testing"]);
     }
+
+    public static function post(){
+    	echo json_encode(["wow" => true]);
+    }
 }

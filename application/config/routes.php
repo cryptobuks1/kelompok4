@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route = Luthier\Route::getRoutes();
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -49,20 +50,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
 
 
 
-/*
-API ROUTE untuk pengambilan data
-|
-|
-|
-|
-|
-|
-*/
 
-$route['api/v1/product/fotocopy'] = 'api/products/v1/PriceRangeFotoCopy/index';
+
+// -> Moved into application/routes/
+
+// $route['default_controller'] = 'welcome';
+// $route['404_override'] = '';
+// $route['translate_uri_dashes'] = FALSE;
+
+
+
+// /*
+// API ROUTE untuk pengambilan data
+// |
+// |
+// |
+// |
+// |
+// |
+// */
+
+// $route['api/v1/product/fotocopy'] = 'api/products/v1/PriceRangeFotoCopy/index';
+// $route['api/v1/login/auth/admin']['POST'] = 'api/products/v1/PriceRangeFotoCopy/index';
+
+
+// /*
+// | ROUTE untuk migrasi database
+// |
+// |
+// |
+// |
+// |
+// */
+
+// $route['db/activateMigrate'] = 'db/Migrate/upDatabase';

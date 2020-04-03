@@ -1,0 +1,3 @@
+application/migrations/*.php
+/application/migrations/*.php
+
