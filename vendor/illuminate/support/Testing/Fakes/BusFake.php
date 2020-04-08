@@ -3,16 +3,16 @@
 namespace Illuminate\Support\Testing\Fakes;
 
 use Closure;
-use Illuminate\Contracts\Bus\QueueingDispatcher;
+use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
 use PHPUnit\Framework\Assert as PHPUnit;
 
-class BusFake implements QueueingDispatcher
+class BusFake implements Dispatcher
 {
     /**
      * The original Bus dispatcher implementation.
      *
-     * @var \Illuminate\Contracts\Bus\QueueingDispatcher
+     * @var \Illuminate\Contracts\Bus\Dispatcher
      */
     protected $dispatcher;
 
@@ -40,11 +40,11 @@ class BusFake implements QueueingDispatcher
     /**
      * Create a new bus fake instance.
      *
-     * @param  \Illuminate\Contracts\Bus\QueueingDispatcher  $dispatcher
+     * @param  \Illuminate\Contracts\Bus\Dispatcher  $dispatcher
      * @param  array|string  $jobsToFake
      * @return void
      */
-    public function __construct(QueueingDispatcher $dispatcher, $jobsToFake = [])
+    public function __construct(Dispatcher $dispatcher, $jobsToFake = [])
     {
         $this->dispatcher = $dispatcher;
 
@@ -248,21 +248,6 @@ class BusFake implements QueueingDispatcher
             $this->commands[get_class($command)][] = $command;
         } else {
             return $this->dispatcher->dispatchNow($command, $handler);
-        }
-    }
-
-    /**
-     * Dispatch a command to its appropriate handler behind a queue.
-     *
-     * @param  mixed  $command
-     * @return mixed
-     */
-    public function dispatchToQueue($command)
-    {
-        if ($this->shouldFakeJob($command)) {
-            $this->commands[get_class($command)][] = $command;
-        } else {
-            return $this->dispatcher->dispatchToQueue($command);
         }
     }
 

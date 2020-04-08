@@ -35,4 +35,12 @@ class Welcome extends CI_Controller {
       ->_display();
       exit;
 	}
+
+	public function seeHome(){
+		$this->load->view('welcome_message');
+	}
+
+	public function apiTestMiddleware(){
+		echo "Access given";
+	}
 }

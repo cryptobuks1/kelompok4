@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'file', 'view', 'form', 'date');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('twig');
+$autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------

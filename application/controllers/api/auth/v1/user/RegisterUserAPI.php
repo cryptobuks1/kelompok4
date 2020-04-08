@@ -11,6 +11,7 @@ class RegisterUserAPI extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user/account/Auth');
+		$this->load->model("user/payment/User_Payment");
 		$this->load->helper('response');
 		$this->validator = new Validator([
 			'required' => ':attribute Harus diisi',
@@ -51,11 +52,18 @@ class RegisterUserAPI extends CI_Controller{
 			if($exEmail->count() > 0)$existingEmail = true;
 
 			if(!$existingEmail && !$existingUsername){
+				//Create credentials
 				$this->Auth::create([
 				'username' => $username,
 				'email' => $email,
 				'password' => BCrypt::hash($password, ['rounds' => 16])
 				]);
+
+				//Create E_Wallet
+					$this->User_Payment::create([
+						'username' => $username
+					]);
+
 				response(200, 
 				["content_type" => 
 							["type" => 'application/json', "encoding" =>'utf-8'], 

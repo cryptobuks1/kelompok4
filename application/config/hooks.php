@@ -12,6 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
+
+$hook = Luthier\Hook::getHooks();
+
 $hook['pre_system'][] = array(
   'class'    => 'WhoopsHook',
   'function' => 'bootWhoops',
@@ -19,5 +22,3 @@ $hook['pre_system'][] = array(
   'filepath' => 'hooks',
   'params'   => array()
 );
-
-$hook = Luthier\Hook::getHooks();

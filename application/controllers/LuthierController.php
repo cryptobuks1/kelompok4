@@ -8,6 +8,9 @@
  * the CI_Router class.
  */
 
+use Whoops\Run;
+use Whoops\Handler\PrettyPageHandler;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class LuthierController extends CI_Controller
@@ -17,5 +20,8 @@ class LuthierController extends CI_Controller
      */
     public function index()
     {
+    	$whoops = new Run;
+        $whoops->pushHandler(new PrettyPageHandler());
+        $whoops->register();
     }
 }

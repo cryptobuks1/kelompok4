@@ -41,6 +41,7 @@ class Register extends CI_Controller{
 
 		if($this->form_validation->run() != false){
 			$this->load->model("user/account/auth");
+			$this->load->model("user/payment/User_Payment");
 			//Get Existing Username
 			$existingUsername = false;
 			$exUsername = $this->auth::where('username', "=", $username)->get();
@@ -52,11 +53,18 @@ class Register extends CI_Controller{
 			if($exEmail->count() > 0)$existingEmail = true;
 
 			if(!$existingEmail && !$existingUsername){
+				//Create credentials
 				$this->auth::create([
 				'username' => $username,
 				'email' => $email,
 				'password' => BCrypt::hash($password, ['rounds' => 16])
 				]);
+
+				//Create E_Wallet
+					$this->User_Payment::create([
+						'username' => $username
+					]);
+
 				$this->session->set_flashdata('msg', "Akun anda telah terdaftarkan");
 				redirect('user/login');
 			}else{

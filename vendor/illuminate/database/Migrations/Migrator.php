@@ -2,18 +2,17 @@
 
 namespace Illuminate\Database\Migrations;
 
+use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
 use Illuminate\Database\Events\MigrationEnded;
 use Illuminate\Database\Events\MigrationsEnded;
 use Illuminate\Database\Events\MigrationsStarted;
 use Illuminate\Database\Events\MigrationStarted;
-use Illuminate\Database\Events\NoPendingMigrations;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class Migrator
 {
@@ -62,7 +61,7 @@ class Migrator
     /**
      * The output interface implementation.
      *
-     * @var \Symfony\Component\Console\Output\OutputInterface
+     * @var \Illuminate\Console\OutputStyle
      */
     protected $output;
 
@@ -140,8 +139,6 @@ class Migrator
         // aren't, we will just make a note of it to the developer so they're aware
         // that all of the migrations have been run against this database system.
         if (count($migrations) === 0) {
-            $this->fireMigrationEvent(new NoPendingMigrations('up'));
-
             $this->note('<info>Nothing to migrate.</info>');
 
             return;
@@ -224,8 +221,6 @@ class Migrator
         $migrations = $this->getMigrationsForRollback($options);
 
         if (count($migrations) === 0) {
-            $this->fireMigrationEvent(new NoPendingMigrations('down'));
-
             $this->note('<info>Nothing to rollback.</info>');
 
             return [];
@@ -526,24 +521,6 @@ class Migrator
     }
 
     /**
-     * Execute the given callback using the given connection as the default connection.
-     *
-     * @param  string  $name
-     * @param  callable  $callback
-     * @return mixed
-     */
-    public function usingConnection($name, callable $callback)
-    {
-        $previousConnection = $this->resolver->getDefaultConnection();
-
-        $this->setConnection($name);
-
-        return tap($callback(), function () use ($previousConnection) {
-            $this->setConnection($previousConnection);
-        });
-    }
-
-    /**
      * Set the default connection name.
      *
      * @param  string  $name
@@ -621,10 +598,10 @@ class Migrator
     /**
      * Set the output implementation that should be used by the console.
      *
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  \Illuminate\Console\OutputStyle  $output
      * @return $this
      */
-    public function setOutput(OutputInterface $output)
+    public function setOutput(OutputStyle $output)
     {
         $this->output = $output;
 
