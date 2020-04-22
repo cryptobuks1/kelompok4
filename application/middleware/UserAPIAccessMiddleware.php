@@ -35,7 +35,7 @@ class UserAPIAccessMiddleware implements MiddlewareInterface{
 			response(406, 
 				["content_type" => 
 							["type" => 'application/json', "encoding" =>'utf-8'], 
-				"output" => json_encode(["msg" => "$username"])])->_display();
+				"output" => json_encode(["msg" => $validation->errors()->all()])])->_display();
 			
 			exit;
 		}else{

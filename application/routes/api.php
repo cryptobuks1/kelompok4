@@ -28,6 +28,22 @@ Route::group("api/$API_VERSION/product", function() use(&$API_VERSION){
 Route::group("api/$API_VERSION/user/", function() use(&$API_VERSION){
 	Route::post('auth/login', "api/auth/$API_VERSION/user/LoginUserAPI@tryLogin")->name('auth_loginUser');
 	Route::post('auth/register', "api/auth/$API_VERSION/user/RegisterUserAPI@register")->name('auth_registerUser');
+
+
+	/*
+		Route untuk masalah pembayaran
+		Middleware : 
+			- UserAPIAccessMiddleware = Memastikan User memiliki akses token untuk melanjutkan permintaan, Jika tidak ada maka akan diinfokan untuk melakukan login ulang
+
+			-EPaymentPINAuth = Melakukan autentikasi PIN yang user berikan, Jika salah maka akan kembali
+	*/
+
+
+	Route::get('ewallet/get_saldo', "api/e_wallet/$API_VERSION/user/EwalletProvider@getSaldo", ['middleware' => 'UserAPIAccessMiddleware']);
+
+	Route::post('ewallet/do_trx', "api/e_wallet/$API_VERSION/user/EwalletProvider@getSaldo", ['middleware' => ['UserAPIAccessMiddleware', 'EPaymentPINAuth']]);
+
+	Route::post('ewallet/change_pin', "api/e_wallet/$API_VERSION/user/EwalletProvider@changePIN", ['middleware' => ['UserAPIAccessMiddleware', 'EPaymentPINAuth']]);
 });
 
 Route::get('testApi/', 'Welcome@apiTestMiddleware', ['middleware' => 'UserAPIAccessMiddleware']);

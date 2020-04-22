@@ -52,6 +52,11 @@ Route::group("admin", function() use(&$API_VERSION){
 
 	//Product Route
 	Route::get('/product/add', "admin/Products/Admin_Add_Products@index")->name('admin_add_products');
+
+	//User Route
+	Route::group('/ewallet', function(){
+		Route::get('/', "admin/E_Wallet/User_EWallet@index");
+	});
 });
 
 

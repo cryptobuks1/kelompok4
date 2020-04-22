@@ -9,5 +9,5 @@ class User_Payment extends EModel{
 	protected $keyType = 'string';
 	public $timestamps = false;
 	protected $dates = ['last_update'];
-	protected $fillable = ['username', 'remain_balance', 'last_update'];
+	protected $fillable = ['username', 'remain_balance', 'last_update', 'pin'];
 }
