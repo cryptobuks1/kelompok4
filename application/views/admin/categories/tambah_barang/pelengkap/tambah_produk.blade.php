@@ -2,9 +2,11 @@
 	<input type="hidden" name="{{ $name }}" value="{{ $key }}">
 <div class="col-md-12">
 	<div class="alert alert-danger alert-dismissable d-none" id="errorMsg"> 
-		<ul id="eMessg">
-			
-		</ul>
+		<div class="pl-4 pr-2">
+			<ul id="eMessg">
+				
+			</ul>
+		</div>
 	</div>
 	<div class="card">
 		<div class="card-header">

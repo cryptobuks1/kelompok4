@@ -150,6 +150,7 @@
                         ythis.prop('disabled', false);
                         ythis.html('Simpan');
                         
+
                         if(error.response.data.msg.length >= 1){
                             $('#eMessg').append("<li>"+error.response.data.msg+"</li>");
                         }else{
