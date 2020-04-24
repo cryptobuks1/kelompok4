@@ -1,0 +1,780 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"projec",
+				"project_name"
+			],
+			[
+				"pord",
+				"productGrosir"
+			],
+			[
+				"gros",
+				"grosirInputs"
+			],
+			[
+				"prod",
+				"productGrosir"
+			],
+			[
+				"kode",
+				"kode_barang"
+			],
+			[
+				"Gros",
+				"grosirPrice"
+			],
+			[
+				"arr",
+				"arrGrosir"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"input",
+				"inputs"
+			],
+			[
+				"harga",
+				"hargaSatuan"
+			],
+			[
+				"show",
+				"showDups"
+			],
+			[
+				"new",
+				"newpin"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"catc",
+				"catcher"
+			],
+			[
+				"pin",
+				"pinDb"
+			],
+			[
+				"EPa",
+				"EPaymentAuthException"
+			],
+			[
+				"xS",
+				"xSt"
+			],
+			[
+				"subjec",
+				"subjectLogin"
+			],
+			[
+				"ret",
+				"results"
+			],
+			[
+				"ses",
+				"sesskey"
+			],
+			[
+				"sess",
+				"sessid"
+			],
+			[
+				"hasil",
+				"hasilAbsensi"
+			],
+			[
+				"err",
+				"errorThrown"
+			],
+			[
+				"form",
+				"formData"
+			],
+			[
+				"j",
+				"jurusan"
+			],
+			[
+				"messa",
+				"message"
+			],
+			[
+				"app",
+				"appDir"
+			],
+			[
+				"send",
+				"sendImg"
+			],
+			[
+				"se",
+				"sendText"
+			],
+			[
+				"clien",
+				"clientS"
+			],
+			[
+				"res",
+				"results"
+			],
+			[
+				"url",
+				"urlParamsGet"
+			],
+			[
+				"o",
+				"oLink"
+			],
+			[
+				"odl",
+				"oldval"
+			],
+			[
+				"msg",
+				"msgStatus"
+			],
+			[
+				"t",
+				"t_msg"
+			],
+			[
+				"wa",
+				"waitForCompletion"
+			],
+			[
+				"sen",
+				"sendMessage"
+			],
+			[
+				"session",
+				"sessionKey"
+			],
+			[
+				"cline",
+				"clientWa"
+			],
+			[
+				"client",
+				"clientWa"
+			],
+			[
+				"server",
+				"serverHelper"
+			],
+			[
+				"page",
+				"pagePrimary"
+			],
+			[
+				"login",
+				"login_collector"
+			],
+			[
+				"bri",
+				"browserItself"
+			],
+			[
+				"brow",
+				"browserItself"
+			],
+			[
+				"browser",
+				"browserItself"
+			],
+			[
+				"jadwal",
+				"jadwal_info"
+			],
+			[
+				"jadwa",
+				"jadwal_info"
+			],
+			[
+				"broser",
+				"browser_handler"
+			],
+			[
+				"browse",
+				"browser_handler"
+			],
+			[
+				"jq",
+				"JQuery"
+			],
+			[
+				"get",
+				"getJadwal"
+			],
+			[
+				"retu",
+				"result"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"i",
+				"i\tTag"
+			],
+			[
+				"val",
+				"validation"
+			],
+			[
+				"ex",
+				"exPayment"
+			],
+			[
+				"__",
+				"__result"
+			],
+			[
+				"mesg",
+				"messageToSend"
+			],
+			[
+				"nama",
+				"nama_barang"
+			],
+			[
+				"for",
+				"formatter"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"vali",
+				"validator"
+			],
+			[
+				"serialize",
+				"serializeJSON"
+			],
+			[
+				"va",
+				"values"
+			],
+			[
+				"preven",
+				"preventDefault"
+			],
+			[
+				"const",
+				"constraint"
+			],
+			[
+				"produc",
+				"product_category"
+			],
+			[
+				"add",
+				"add_key"
+			],
+			[
+				"create",
+				"create_table"
+			],
+			[
+				"add_",
+				"add_key"
+			],
+			[
+				"prev",
+				"preventDefault"
+			],
+			[
+				"the",
+				"the-fieldset"
+			],
+			[
+				"asse",
+				"assets"
+			],
+			[
+				"onkey",
+				"onkeyup\tAttr"
+			],
+			[
+				"date",
+				"date_create"
+			],
+			[
+				"date_",
+				"date_diff"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"jso",
+				"json"
+			],
+			[
+				"local",
+				"localUser"
+			],
+			[
+				"prop",
+				"properties_class"
+			],
+			[
+				"API",
+				"API_VERSION"
+			],
+			[
+				"A",
+				"API_VERSION"
+			],
+			[
+				"exi",
+				"existingUsername"
+			],
+			[
+				"exis",
+				"existingEmail"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"min",
+				"minlength"
+			],
+			[
+				"valid",
+				"valid_email"
+			],
+			[
+				"use",
+				"useCache"
+			],
+			[
+				"cata",
+				"catatan_data"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"sec",
+				"secData"
+			],
+			[
+				"cons",
+				"constraint"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/middleware/UserAPIAccessMiddleware.php",
+			"settings":
+			{
+				"buffer_size": 2581,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"subi",
+				"Sublimecord: Connect to Discord"
+			],
+			[
+				"discord",
+				"Sublimecord: Disconnect from Discord"
+			],
+			[
+				"disco",
+				"Sublimecord: Connect to Discord"
+			],
+			[
+				"discon",
+				"Sublimecord: Disconnect from Discord"
+			],
+			[
+				"disc",
+				"Sublimecord: Connect to Discord"
+			],
+			[
+				"connec",
+				"Sublimecord: Connect to Discord"
+			],
+			[
+				"discor",
+				"Sublimecord: Connect to Discord"
+			],
+			[
+				"dis",
+				"Discord Rich Presence: Reconnect to Discord"
+			],
+			[
+				"d",
+				"Discord Rich Presence: Reconnect to Discord"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pret",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/home/sinyo/WebFolder/ste_online/Online Stationary.sublime-project",
+		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord-master/sublimecord.py",
+		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord-master/discord_ipc.py",
+		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord-master/extensions.py",
+		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord-master/payloads.py",
+		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord/Sublimecord.sublime-settings",
+		"/home/sinyo/WebFolder/ste_online/application/models/product/Product_Grosir.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/tambah_barang/add_product_admin.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/AddProductAPI.php",
+		"/home/sinyo/WebFolder/ste_online/application/middleware/EPaymentPINAuth.php",
+		"/home/sinyo/WebFolder/ste_online/application/routes/api.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Eloquent/Model.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Eloquent/Builder.php",
+		"/home/sinyo/WebFolder/ste_online/system/libraries/Email.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/tambah_barang/pelengkap/tambah_produk.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/product/Product_Info.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/support/MessageBag.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/e_wallet/v1/user/EwalletProvider.php",
+		"/home/sinyo/WebFolder/ste_online/application/middleware/UserAPIAccessMiddleware.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/user/payment/User_Payment.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/Route.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/phpspec/prophecy/src/Prophecy/Exception/Exception.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/rych/phpass/src/PHPassLib/Exception.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/phpunit/php-code-coverage/src/Exception/Exception.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/MiddlewareInterface.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/myclabs/deep-copy/src/DeepCopy/DeepCopy.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Query/Builder.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/Auth/SimpleAuth/Middleware/SimpleAuthMiddleware.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/Middleware.php",
+		"/home/sinyo/wbot/server.js",
+		"/home/sinyo/wbot/browser_info.js",
+		"/home/sinyo/wbot/cookies.js",
+		"/home/sinyo/wbot/autologin.js",
+		"/home/sinyo/wbot/absen.json",
+		"/usr/local/android-studio/android-studio/bin/lldb/android/start_lldb_server.sh",
+		"/media/sinyo/01D5CA46138EBA20/Backup HP/baruu/contacts.vcf",
+		"/home/sinyo/wbot/node_modules/puppeteer/lib/DOMWorld.js",
+		"/home/sinyo/wbot/jadwal.js",
+		"/home/sinyo/wbot/node_modules/puppeteer/lib/Launcher.js",
+		"/home/sinyo/wbot/node_modules/form-data/lib/form_data.js",
+		"/home/sinyo/wbot/node_modules/puppeteer/lib/Puppeteer.js",
+		"/home/sinyo/wbot/index.html",
+		"/home/sinyo/wbot_ex/now.json",
+		"/home/sinyo/wbot/package.json",
+		"/home/sinyo/wbot_ex/package.json",
+		"/home/sinyo/wbot_ex/server.js",
+		"/home/sinyo/wbot/jadwal_info.js",
+		"/home/sinyo/wbot/browser.js",
+		"/home/sinyo/wbot/login_init.js",
+		"/home/sinyo/wbot_ex/package-lock.json",
+		"/home/sinyo/wbot_ex/index.js",
+		"/home/sinyo/wbot/now.json",
+		"/home/sinyo/wbot/node_modules/sulla/dist/api/layers/sender.layer.js",
+		"/home/sinyo/wbot/node_modules/sulla/dist/controllers/initializer.js",
+		"/home/sinyo/wbot/node_modules/puppeteer/lib/Browser.js",
+		"/home/sinyo/wbot/node_modules/sulla/dist/controllers/auth.js",
+		"/home/sinyo/wbot/node_modules/rxjs/internal/observable/generate.js",
+		"/home/sinyo/wbot/node_modules/sulla/dist/api/whatsapp.js",
+		"/home/sinyo/wbot/screenshot/null.jpg",
+		"/home/sinyo/wbot/node_modules/puppeteer/lib/Page.js",
+		"/home/sinyo/wbot/node_modules/puppeteer/.local-chromium/linux-722234/chrome-linux/resources/inspector/cookie_table/CookiesTable.js",
+		"/home/sinyo/injectWbot/SI Jasa Berbasis Layanan_ ABSEN PEMBAHASAN KISI2.html",
+		"/home/sinyo/wbot/node_modules/puppeteer/lib/Dialog.js",
+		"/home/sinyo/wbot/node_modules/sulla/app.js",
+		"/home/sinyo/wbot/foreach_helper.js",
+		"/home/sinyo/wbot/node_modules/puppeteer/.local-chromium/linux-722234/chrome-linux/resources/inspector/services/ServiceManager.js",
+		"/home/sinyo/wbot/browser_handler.js",
+		"/home/sinyo/wbot/node_modules/.bin/prebuild-install",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/pelengkap/ewallet_options.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/ewallet_index.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/admin/E_Wallet/User_EWallet.php",
+		"/home/sinyo/WebFolder/ste_online/application/routes/web.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/components/css_dep.blade.php",
+		"/home/sinyo/WebFolder/ste_online/system/core/Controller.php",
+		"/home/sinyo/WebFolder/jastipJP/vendor/laravel/ui/auth-backend/RegistersUsers.php",
+		"/home/sinyo/WebFolder/jastipJP/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php",
+		"/home/sinyo/WebFolder/jastipJP/app/Providers/RouteServiceProvider.php",
+		"/home/sinyo/WebFolder/jastipJP/config/session.php",
+		"/home/sinyo/WebFolder/jastipJP/.htaccess",
+		"/home/sinyo/WebFolder/jastipJP/.env",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/Welcome.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/user/account/Login_Process.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/rakit/validation/src/Validator.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/rakit/validation/src/Validation.php",
+		"/home/sinyo/WebFolder/ste_online/application/config/config.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Capsule/Manager.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/RouteBuilder.php",
+		"/home/sinyo/WebFolder/ste_online/system/core/Loader.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/user/Register.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/auth/v1/user/RegisterUserAPI.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Schema/Blueprint.php",
+		"/home/sinyo/wbot/index.js",
+		"/home/sinyo/wbot/node_modules/sulla/dist/app.js",
+		"/home/sinyo/wbot/node_modules/chownr/chownr.js",
+		"/home/sinyo/wbot/node_modules/sulla/dist/api/layers/listener.layer.js",
+		"/home/sinyo/wbot/node_modules/node-addon-api/napi-inl.h",
+		"/home/sinyo/wbot/node_modules/sulla/README.md",
+		"/home/sinyo/wbot/node_modules/sulla/dist/controllers/browser.js",
+		"/home/sinyo/wbot/node_modules/ws/lib/event-target.js",
+		"/home/sinyo/wbot/app.js",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/admin/Products/Admin_Add_Products.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/sinyo1015/autonumbering/src/AutoNumber.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/sinyo1015/autonumbering/src/Exception/StringLengthException.php",
+		"/home/sinyo/WebFolder/ste_online/application/libraries/AutoNumber.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/ConnectionInterface.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/filp/whoops/src/Whoops/Run.php",
+		"/home/sinyo/WebFolder/ste_online/application/config/hooks.php",
+		"/home/sinyo/WebFolder/ste_online/index.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php",
+		"/home/sinyo/WebFolder/ste_online/application/hooks/WhoopsHook.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/LuthierController.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/Hook.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/phpunit/php-code-coverage/src/Exception/RuntimeException.php",
+		"/home/sinyo/WebFolder/ste_online/composer.json",
+		"/home/sinyo/WebFolder/autonumbering/src/AutoNumber.php",
+		"/home/sinyo/WebFolder/AutoNumber/composer.json",
+		"/home/sinyo/WebFolder/autonumbering/composer.json",
+		"/home/sinyo/WebFolder/autonumbering/src/YourClass.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/sebastian/recursion-context/src/Exception.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/sebastian/object-enumerator/src/Exception.php",
+		"/home/sinyo/WebFolder/ste_online/system/database/DB_query_builder.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/support/Arr.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/support/Collection.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/alfa6661/laravel-autonumber/src/AutoNumber.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/support/Facades/Config.php",
+		"/home/sinyo/WebFolder/ste_online/assets/js/lib/data-table/jquery-1.12.4.js",
+		"/home/sinyo/WebFolder/ste_online/vendor/symfony/debug/Exception/FlattenException.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/support/Traits/Tappable.php"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"project_name",
+			"compare",
+			"grosirInput",
+			"array",
+			"get",
+			"this",
+			"get"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/middleware/UserAPIAccessMiddleware.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								568,
+								568
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Online Stationary.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
