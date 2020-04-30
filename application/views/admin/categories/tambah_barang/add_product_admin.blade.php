@@ -132,7 +132,6 @@
             $('#eMessg').empty();
             ythis.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading, sedang menyimpan data...');
             let dataForm = $('#formProductAdd').serializeJSON();
-            console.log(dataForm);
             axios({
                 method: 'post',
                 url: '<?= route('addProductAPI') ?>',

@@ -3,9 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Rakit\Validation\Validator;
 
-
-class AddProductAPI extends CI_Controller{
-	private $validator;
+class EditProductAPI extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('product/Product_Info');
@@ -18,7 +16,6 @@ class AddProductAPI extends CI_Controller{
 			'max' => ':attribute Maksimal :max karakter',
 		]);
 	}
-
 
 	public function showDups($arr){
 	  $array_temp = [];
@@ -74,9 +71,7 @@ class AddProductAPI extends CI_Controller{
 		return $msg;
 	}
 
-
-
-	public function postData(){
+	public function edit(){
 		$inputs = json_decode($this->security->xss_clean($this->input->raw_input_stream), TRUE);
 
 		$validation = $this->validator->make($inputs, [
@@ -85,7 +80,6 @@ class AddProductAPI extends CI_Controller{
 			'hargaSatuan' => 'required|integer|min:3|max:12',
 			'stokBarang' => 'required|integer|min:1|max:12'
 		]);
-
 
 		foreach ($inputs["grosirInput"] as $key => $element) {
 		    if ($element == "" || $element == null) {
@@ -99,9 +93,6 @@ class AddProductAPI extends CI_Controller{
 		    }
 		}
 
-
-
-
 		$validation->validate();
 		if($validation->fails()){
 			response(400, 
@@ -112,7 +103,6 @@ class AddProductAPI extends CI_Controller{
 		}
 
 		try{
-
 			if($this->showDups($inputs["grosirInput"]) != null){
 				$dups = implode(",", $this->showDups($inputs["grosirInput"]));
 				throw new \Exception("Terdapat duplikat jumlah input grosir : ".$dups);
@@ -151,57 +141,40 @@ class AddProductAPI extends CI_Controller{
 				$inGro++;
 			}
 
-
 			$prodInf = $this->Product_Info::where('nama_barang', '=', $inputs["namaProduk"])->first();
 			$prodInf2 = $this->Product_Info::where('kode_barang', '=', $inputs["kodeProduk"])->first();
 			if($prodInf != null){
 				throw new \Exception("Nama Produk tidak boleh sama");
-			}else if($prodInf2){
-				throw new \Exception("Kode Barang tidak boleh sama");
 			}else{
+				$productInfo = $this->Product_Info::where('kode_barang', '=', $inputs["kodeProduk"])->update([
+								'nama_barang' => $inputs["namaProduk"],
+								'kode_kategori' => $inputs["kategoriSel"],
+								'stok' => $inputs["stokBarang"],
+								'harga_satuan' => $inputs["hargaSatuan"]
+								]);
 
-					$productInfo = $this->Product_Info::create([
-									'kode_barang' => $inputs["kodeProduk"],
-									'nama_barang' => $inputs["namaProduk"],
-									'kode_kategori' => $inputs["kategoriSel"],
-									'stok' => $inputs["stokBarang"],
-									'harga_satuan' => $inputs["hargaSatuan"]
+				$this->Product_Grosir::where('kode_barang', '=', $inputs["kodeProduk"])->delete();
+
+				foreach($arrGrosir as $val){
+					$productGrosir = $this->Product_Grosir::create([
+										'kode_barang' => $inputs["kodeProduk"],
+										'min_pcs' => $val[0],
+										'prices' => $val[1]
 									]);
-					if($productInfo->save()){
-
-						foreach($arrGrosir as $val){
-							$productGrosir = $this->Product_Grosir::create([
-												'kode_barang' => $inputs["kodeProduk"],
-												'min_pcs' => $val[0],
-												'prices' => $val[1]
-											]);
-							$productGrosir->save();
-						}
-
-						response(200, 
-						["content_type" => 
-									["type" => 'application/json', "encoding" =>'utf-8'], 
-						"output" => json_encode(["msg" => "success"])])->_display();
-					}else{
-						throw new \Exception("Failed, Please check log errors");
-					}		
+					$productGrosir->save();
+				}
+				response(200, 
+				["content_type" => 
+							["type" => 'application/json', "encoding" =>'utf-8'], 
+				"output" => json_encode(["msg" => "success"])])->_display();
+				exit;
 			}
 		}catch(\Exception $e){
-			response(400, 
-			["content_type" => 
-						["type" => 'application/json', "encoding" =>'utf-8'], 
-			"output" => json_encode(["msg" => json_encode($e->getMessage())])])->_display();
-			exit;
-		}
-		
-
-		// foreach($inputs["grosirInput"] as $grosir){
-		// 	echo $grosir."<br>";
-		// }
-
-		// foreach($inputs["grosirPrice"] as $gPrice){
-		// 	echo $gPrice."<br>";
-		// }
-
+				response(400, 
+				["content_type" => 
+							["type" => 'application/json', "encoding" =>'utf-8'], 
+				"output" => json_encode(["msg" => json_encode($e->getMessage())])])->_display();
+				exit;
+			}
 	}
 }

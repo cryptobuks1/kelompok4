@@ -22,6 +22,9 @@ static $API_VERSION = 'v1';
 
 Route::group("api/$API_VERSION/product", function() use(&$API_VERSION){
 	Route::post('/add', "api/products/$API_VERSION/admin/AddProductAPI@postData")->name("addProductAPI");
+	Route::post('/delete', "api/products/$API_VERSION/admin/DeleteProductAPI@delete")->name("deleteProductAPI");
+	Route::post('/edit', "api/products/$API_VERSION/admin/EditProductAPI@edit")->name("editProductAPI");
+	Route::get('/list', "api/products/$API_VERSION/ListProduct@index")->name("listProductAPI");
 });
 
 

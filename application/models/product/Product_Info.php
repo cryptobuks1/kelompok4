@@ -11,7 +11,7 @@ class Product_Info extends Model{
 	protected $primaryKey = 'kode_barang';
 	protected $keyType = 'string';
 	public $timestamps = false;
-	protected $fillable = ['kode_barang', 'nama_barang', 'kode_kategori', 'harga_satuan'];
+	protected $fillable = ['kode_barang', 'nama_barang', 'kode_kategori', 'stok', 'harga_satuan'];
 
 
 }
