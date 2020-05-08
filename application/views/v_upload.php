@@ -15,6 +15,8 @@
 <body >
 
 
+
+
 <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #00FFFF ">
   <a class="navbar-brand" href="#">Stationary Online</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -240,5 +242,8 @@
 
 </footer>
 <!-- Footer -->
+
+
+
 </body>
 </html>
