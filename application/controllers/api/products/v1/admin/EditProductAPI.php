@@ -141,11 +141,8 @@ class EditProductAPI extends CI_Controller{
 				$inGro++;
 			}
 
-			$prodInf = $this->Product_Info::where('nama_barang', '=', $inputs["namaProduk"])->first();
 			$prodInf2 = $this->Product_Info::where('kode_barang', '=', $inputs["kodeProduk"])->first();
-			if($prodInf != null){
-				throw new \Exception("Nama Produk tidak boleh sama");
-			}else{
+			if($prodInf2 != null){
 				$productInfo = $this->Product_Info::where('kode_barang', '=', $inputs["kodeProduk"])->update([
 								'nama_barang' => $inputs["namaProduk"],
 								'kode_kategori' => $inputs["kategoriSel"],

@@ -432,18 +432,19 @@
 			}
 		},
 		{
-			"file": "application/controllers/api/products/v1/admin/AddProductAPI.php",
+			"file": "application/routes/api.php",
 			"settings":
 			{
-				"buffer_size": 5546,
+				"buffer_size": 2175,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/routes/api.php",
+			"file": "application/config/database.php",
 			"settings":
 			{
-				"buffer_size": 2073,
+				"buffer_size": 5394,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -452,7 +453,7 @@
 			"file": "application/views/admin/categories/list_barang/list_barang.blade.php",
 			"settings":
 			{
-				"buffer_size": 11196,
+				"buffer_size": 14170,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -561,12 +562,15 @@
 	[
 		"/home/sinyo/WebFolder/ste_online/",
 		"/home/sinyo/WebFolder/ste_online//application",
+		"/home/sinyo/WebFolder/ste_online//application/config",
 		"/home/sinyo/WebFolder/ste_online//application/controllers",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/admin",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/admin/E_Wallet",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet/v1",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1/admin",
 		"/home/sinyo/WebFolder/ste_online//application/models",
 		"/home/sinyo/WebFolder/ste_online//application/models/product",
 		"/home/sinyo/WebFolder/ste_online//application/routes",
@@ -574,11 +578,8 @@
 		"/home/sinyo/WebFolder/ste_online//application/views/admin",
 		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories",
 		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/list_barang",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/list_barang/pelengkap",
 		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/tambah_barang",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/tambah_barang/pelengkap",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet/pelengkap"
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet"
 	],
 	"file_history":
 	[
@@ -713,7 +714,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -761,7 +762,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -789,24 +790,24 @@
 						"translation.y": 1062.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/controllers/api/products/v1/admin/AddProductAPI.php",
-					"semi_transient": true,
+					"file": "application/routes/api.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5546,
+						"buffer_size": 2175,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2424,
-								2424
+								0,
+								0
 							]
 						],
 						"settings":
@@ -815,7 +816,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1440.0,
+						"translation.y": 485.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -823,31 +824,30 @@
 				},
 				{
 					"buffer": 2,
-					"file": "application/routes/api.php",
+					"file": "application/config/database.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2073,
+						"buffer_size": 5394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5,
-								5
+								4265,
+								4265
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 48.0,
+						"translation.y": 1242.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -856,15 +856,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11196,
+						"buffer_size": 14170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8119,
-								8119
+								0,
+								0
 							]
 						],
 						"settings":
@@ -915,7 +915,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -952,7 +952,7 @@
 	"project": "Online Stationary.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":

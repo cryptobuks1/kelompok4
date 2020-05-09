@@ -5,7 +5,6 @@
     <style>
         .font24{
             font-size: 48pt;
-            color: #28aeb0;
         }
     </style>
 @endsection
@@ -37,7 +36,10 @@
 
         <div class="content">
             <div class="animated fadeIn">
-                <div class="row">        
+                <div class="row">  
+                    @component('admin.categories.user_ewallet.pelengkap.modal_add')
+
+                    @endcomponent      
                     @component('admin.categories.user_ewallet.pelengkap.ewallet_options')
 
                     @endcomponent
