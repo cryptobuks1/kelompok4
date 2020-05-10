@@ -78,7 +78,9 @@
 			
 			
 			<div class="form-group">
-					<input type="text" name="Deskripsi" class="form-control" placeholder="Deskripsi">
+      <textarea class="form-control" placeholder="Description" name="isi"></textarea>
+
+
 				</div>
 				
 				<div class="form-group">
