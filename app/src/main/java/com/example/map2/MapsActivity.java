@@ -76,6 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(arrayList.get(i)));
         }
+
         lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         locationListener = new MyLocationListener();
         if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)
