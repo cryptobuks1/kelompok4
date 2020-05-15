@@ -18,8 +18,10 @@ class Admin_Add_Products extends CI_Controller{
 
 	public function index(){
 
-		$data = ["name" => $this->security->get_csrf_token_name(), "key" => $this->security->get_csrf_hash(), 
-				"kode_barang" => $this->autonumber->make($this->Product_Info::max('kode_barang'))];
+		$data = ["name" => $this->security->get_csrf_token_name(), 
+				"key" => $this->security->get_csrf_hash(), 
+				"kode_barang" => $this->autonumber->make($this->Product_Info::max('kode_barang')),
+				"flashdata" => $this->session->flashdata()];
 		return view('admin.categories.tambah_barang.add_product_admin', $data);
 	}
 

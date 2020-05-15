@@ -12,8 +12,6 @@ class ListProduct extends CI_Controller{
 
 	public function index(){
 
-
-
 		$allData = [];
 		$datas = $this->Product_Info::distinct()->get();
 

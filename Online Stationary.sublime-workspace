@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"che",
+				"checkIfExist"
+			],
+			[
+				"prod",
+				"product_image"
+			],
+			[
+				"kode",
+				"kode_barang"
+			],
+			[
+				"Pro",
+				"Product_Info"
+			],
+			[
+				"form",
+				"FormData"
+			],
+			[
+				"data",
+				"dataForm"
+			],
+			[
+				"image",
+				"imageData"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"Prod",
+				"Product_Image"
+			],
+			[
+				"valida",
+				"validate_image"
+			],
+			[
+				"upload",
+				"uploadLocationImage"
+			],
+			[
+				"uplo",
+				"uploadLocationImage"
+			],
+			[
+				"upl",
+				"uploadLocationImage"
+			],
+			[
+				"li",
+				"link\tTag"
+			],
+			[
+				"va",
+				"validator"
+			],
+			[
+				"nom",
+				"nomor_hp"
+			],
+			[
+				"trx",
+				"trxCreator"
+			],
+			[
+				"get",
+				"getCurrentWallet"
+			],
+			[
+				"user",
+				"userExist"
+			],
+			[
+				"User",
+				"User_Payment"
+			],
+			[
+				"form-",
+				"form-group"
+			],
+			[
 				"res",
 				"result"
 			],
@@ -40,14 +124,6 @@
 				"toArray"
 			],
 			[
-				"Pro",
-				"Product_Grosir"
-			],
-			[
-				"Prod",
-				"ProductLists"
-			],
-			[
 				"pord",
 				"Product_Info"
 			],
@@ -60,24 +136,12 @@
 				"project_name"
 			],
 			[
-				"prod",
-				"productGrosir"
-			],
-			[
-				"kode",
-				"kode_barang"
-			],
-			[
 				"Gros",
 				"grosirPrice"
 			],
 			[
 				"arr",
 				"arrGrosir"
-			],
-			[
-				"json",
-				"json_encode"
 			],
 			[
 				"print",
@@ -98,10 +162,6 @@
 			[
 				"new",
 				"newpin"
-			],
-			[
-				"user",
-				"username"
 			],
 			[
 				"catc",
@@ -142,10 +202,6 @@
 			[
 				"err",
 				"errorThrown"
-			],
-			[
-				"form",
-				"formData"
 			],
 			[
 				"j",
@@ -256,10 +312,6 @@
 				"JQuery"
 			],
 			[
-				"get",
-				"getJadwal"
-			],
-			[
 				"retu",
 				"result"
 			],
@@ -292,20 +344,12 @@
 				"nama_barang"
 			],
 			[
-				"data",
-				"data"
-			],
-			[
 				"vali",
 				"validator"
 			],
 			[
 				"serialize",
 				"serializeJSON"
-			],
-			[
-				"va",
-				"values"
 			],
 			[
 				"preven",
@@ -424,45 +468,19 @@
 	"buffers":
 	[
 		{
-			"contents": "<?php\ndefined('BASEPATH') OR exit('No direct script access allowed');\n\nuse Rakit\\Validation\\Validator;\n\nclass EditProductAPI extends CI_Controller{\n\tpublic function __construct(){\n\t\tparent::__construct();\n\t\t$this->load->model('product/Product_Info');\n\t\t$this->load->model('product/Product_Grosir');\n\t\t$this->load->helper('response');\n\t\t$this->validator = new Validator([\n\t\t\t'required' => ':attribute Harus diisi',\n\t\t\t'required_with' => ':attribute & :attribute harus diisi',\n\t\t\t'min' => ':attribute Minimal :min karakter',\n\t\t\t'max' => ':attribute Maksimal :max karakter',\n\t\t]);\n\t}\n\n\tpublic function showDups($arr){\n\t  $array_temp = [];\n\t  $elementDups = [];\n\n\t  foreach($arr as $val){\n\t    if(!in_array($val, $array_temp)){\n\t      $array_temp[] = $val;\n\t    }else{\n\t      array_push($elementDups, $val);\n\t    }\n\t  }\n\t return $elementDups;\n\t}\n\n\tpublic function comparator($array, $msg1, $msg2){\n\t\t$temp = 0;\n\t\t$msg = \"\";\n\t\tforeach($array as $loop){\n\t\t    if($temp == $loop){\n\t\t\t    $msg .= \"$msg1 $temp tidak boleh sama dengan : $loop\".\"<br>\";\n\t\t\t    // echo \"Current $temp tidak boleh sama dengan $loop\".\"\\n\";\n\t\t\t    break;\n\t\t    }\n\n\t\t    if($temp>=$loop){\n\t\t    $msg .= \"Input $msg2 $loop tidak boleh kurang dari : $temp\".\"<br>\";\n\t\t    // echo \"Current $loop tidak boleh kurang dari : $temp\".\"\\n\"; //here\n\t\t    break;\n\t\t    }else{\n\t\t    \t$temp=$loop;\n\t\t    }\n\t\t}\n\t\treturn $msg;\n\t}\n\n\tpublic function comparatorHarga($array){\n\t\t$temp = $array[0];\n\t\t$msg = \"\";\n\t\tforeach($array as $loop){\n\n\t\t    if($loop == $temp)continue;\n\n\t\t    if($temp<=$loop){\n\t\t    $msg .= \"Harga $loop tidak boleh melebihi dari : $temp\".\"<br>\"; //here\n\t\t    break;\n\t\t    }\n\n\t\t    else{\n\t\t    $temp=$loop;\n\t\t    }\n\t\t}\n\t\treturn $msg;\n\t}\n\n\t$inputs = json_decode($this->security->xss_clean($this->input->raw_input_stream), TRUE);\n\n\t$validation = $this->validator->make($inputs, [\n\t\t'namaProduk' => 'required|min:4|max:32',\n\t\t'kategoriSel' => 'required',\n\t\t'hargaSatuan' => 'required|integer|min:3|max:12',\n\t\t'stokBarang' => 'required|integer|min:1|max:12'\n\t]);\n\n\tforeach ($inputs[\"grosirInput\"] as $key => $element) {\n\t    if ($element == \"\" || $element == null) {\n\t        unset($inputs[\"grosirInput\"][$key]);\n\t    }\n\t}\n\n\tforeach ($inputs[\"grosirPrice\"] as $key => $element) {\n\t    if ($element == \"\" || $element == null) {\n\t        unset($inputs[\"grosirPrice\"][$key]);\n\t    }\n\t}\n\n\t$validation->validate();\n\tif($validation->fails()){\n\t\tresponse(400, \n\t\t[\"content_type\" => \n\t\t\t\t\t[\"type\" => 'application/json', \"encoding\" =>'utf-8'], \n\t\t\"output\" => json_encode([\"msg\" => $validation->errors()->all()])])->_display();\n\t\texit;\n\t}\n\n\n}",
+			"file": "application/controllers/api/products/v1/ListProduct.php",
 			"settings":
 			{
-				"buffer_size": 2598,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/routes/api.php",
-			"settings":
-			{
-				"buffer_size": 2175,
+				"buffer_size": 1358,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/config/database.php",
+			"file": "application/controllers/admin/Products/Admin_List_Products.php",
 			"settings":
 			{
-				"buffer_size": 5394,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/admin/categories/list_barang/list_barang.blade.php",
-			"settings":
-			{
-				"buffer_size": 14170,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/admin/categories/tambah_barang/add_product_admin.blade.php",
-			"settings":
-			{
-				"buffer_size": 6201,
+				"buffer_size": 383,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -566,11 +584,17 @@
 		"/home/sinyo/WebFolder/ste_online//application/controllers",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/admin",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/admin/E_Wallet",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/admin/Products",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/auth",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/auth/v1",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/auth/v1/user",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet/v1",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet/v1/user",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products",
 		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1",
+		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1/admin",
 		"/home/sinyo/WebFolder/ste_online//application/models",
 		"/home/sinyo/WebFolder/ste_online//application/models/product",
 		"/home/sinyo/WebFolder/ste_online//application/routes",
@@ -578,24 +602,63 @@
 		"/home/sinyo/WebFolder/ste_online//application/views/admin",
 		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories",
 		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/list_barang",
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/list_barang/pelengkap",
 		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/tambah_barang",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet"
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/tambah_barang/pelengkap",
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet",
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet/pelengkap",
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/components",
+		"/home/sinyo/WebFolder/ste_online//application/views/admin/master",
+		"/home/sinyo/WebFolder/ste_online//bin",
+		"/home/sinyo/WebFolder/ste_online//products"
 	],
 	"file_history":
 	[
-		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/DeleteProductAPI.php",
-		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/list_barang/pelengkap/modal_components.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/AddProductAPI.php",
+		"/home/sinyo/WebFolder/ste_online/application/routes/api.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/product/Product_Image.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/tambah_barang/add_product_admin.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/admin/Products/Admin_Add_Products.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/tambah_barang/pelengkap/tambah_produk.blade.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/view/View.php",
+		"/home/sinyo/WebFolder/ste_online/application/helpers/view_helper.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/jenssegers/blade/src/Blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/cache/44d11bf119c29935cde8641b29cf65030306d4d4.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/user/Login.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/cache/65d41aa4a617128a59d20fa1a2316e6d40475b24.php",
+		"/home/sinyo/WebFolder/ste_online/application/config/autoload.php",
+		"/home/sinyo/WebFolder/ste_online/system/libraries/Session/Session.php",
+		"/home/sinyo/WebFolder/ste_online/system/helpers/file_helper.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/intervention/image/src/Intervention/Image/ImageManager.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/intervention/image/src/Intervention/Image/AbstractDecoder.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/intervention/image/src/Intervention/Image/Size.php",
+		"/home/sinyo/WebFolder/ste_online/system/libraries/Upload.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/rakit/validation/src/Validator.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/contracts/Validation/Validator.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Eloquent/Model.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/e_wallet/v1/admin/EwalletReload.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/user/payment/User_Payment.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Eloquent/Concerns/HasEvents.php",
+		"/home/sinyo/WebFolder/ste_online/system/core/Loader.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/user/payment/PaymentHistoryMaker.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/ewallet_index.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/pelengkap/modal_add.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/pelengkap/ewallet_options.blade.php",
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/contracts/Validation/Factory.php",
+		"/home/sinyo/WebFolder/ste_online/application/models/user/account/User_Details.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Query/Builder.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Eloquent/Builder.php",
 		"/home/sinyo/WebFolder/ste_online/system/core/Controller.php",
-		"/home/sinyo/WebFolder/ste_online/system/core/Exceptions.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/EditProductAPI.php",
 		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/list_barang/list_barang.blade.php",
+		"/home/sinyo/WebFolder/ste_online/application/config/database.php",
+		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/DeleteProductAPI.php",
+		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/list_barang/pelengkap/modal_components.blade.php",
+		"/home/sinyo/WebFolder/ste_online/system/core/Exceptions.php",
 		"/home/sinyo/WebFolder/ste_online/application/routes/web.php",
 		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/list_barang/pelengkap/table_components.blade.php",
-		"/home/sinyo/WebFolder/ste_online/application/routes/api.php",
 		"/home/sinyo/WebFolder/ste_online/application/models/product/ProductLists.php",
 		"/home/sinyo/WebFolder/ste_online/application/models/product/Product_Info.php",
-		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/AddProductAPI.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/ListProduct.php",
 		"/home/sinyo/Downloads/ElaAdmin-master/tables-data.html",
 		"/home/sinyo/WebFolder/ste_online/system/core/Input.php",
@@ -603,8 +666,6 @@
 		"/home/sinyo/WebFolder/ste_online/system/libraries/Driver.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Capsule/Manager.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/admin/Products/Admin_List_Products.php",
-		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/pelengkap/ewallet_options.blade.php",
-		"/home/sinyo/WebFolder/ste_online/application/controllers/admin/Products/Admin_Add_Products.php",
 		"/home/sinyo/WebFolder/ste_online/application/middleware/UserAPIAccessMiddleware.php",
 		"/home/sinyo/WebFolder/ste_online/application/middleware/EPaymentPINAuth.php",
 		"/home/sinyo/.git/config",
@@ -615,13 +676,9 @@
 		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord-master/payloads.py",
 		"/home/sinyo/.config/sublime-text-3/Packages/sublimecord/Sublimecord.sublime-settings",
 		"/home/sinyo/WebFolder/ste_online/application/models/product/Product_Grosir.php",
-		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/tambah_barang/add_product_admin.blade.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Eloquent/Model.php",
 		"/home/sinyo/WebFolder/ste_online/system/libraries/Email.php",
-		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/tambah_barang/pelengkap/tambah_produk.blade.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/support/MessageBag.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/api/e_wallet/v1/user/EwalletProvider.php",
-		"/home/sinyo/WebFolder/ste_online/application/models/user/payment/User_Payment.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/Route.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/phpspec/prophecy/src/Prophecy/Exception/Exception.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/rych/phpass/src/PHPassLib/Exception.php",
@@ -669,7 +726,6 @@
 		"/home/sinyo/wbot/node_modules/puppeteer/.local-chromium/linux-722234/chrome-linux/resources/inspector/services/ServiceManager.js",
 		"/home/sinyo/wbot/browser_handler.js",
 		"/home/sinyo/wbot/node_modules/.bin/prebuild-install",
-		"/home/sinyo/WebFolder/ste_online/application/views/admin/categories/user_ewallet/ewallet_index.blade.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/admin/E_Wallet/User_EWallet.php",
 		"/home/sinyo/WebFolder/ste_online/application/views/admin/components/css_dep.blade.php",
 		"/home/sinyo/WebFolder/jastipJP/vendor/laravel/ui/auth-backend/RegistersUsers.php",
@@ -680,37 +736,12 @@
 		"/home/sinyo/WebFolder/jastipJP/.env",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/Welcome.php",
 		"/home/sinyo/WebFolder/ste_online/application/models/user/account/Login_Process.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/rakit/validation/src/Validator.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/rakit/validation/src/Validation.php",
 		"/home/sinyo/WebFolder/ste_online/application/config/config.php",
 		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/RouteBuilder.php",
-		"/home/sinyo/WebFolder/ste_online/system/core/Loader.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/user/Register.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/api/auth/v1/user/RegisterUserAPI.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Schema/Blueprint.php",
-		"/home/sinyo/wbot/index.js",
-		"/home/sinyo/wbot/node_modules/sulla/dist/app.js",
-		"/home/sinyo/wbot/node_modules/chownr/chownr.js",
-		"/home/sinyo/wbot/node_modules/sulla/dist/api/layers/listener.layer.js",
-		"/home/sinyo/wbot/node_modules/node-addon-api/napi-inl.h",
-		"/home/sinyo/wbot/node_modules/sulla/README.md",
-		"/home/sinyo/wbot/node_modules/sulla/dist/controllers/browser.js",
-		"/home/sinyo/wbot/node_modules/ws/lib/event-target.js",
-		"/home/sinyo/wbot/app.js",
-		"/home/sinyo/WebFolder/ste_online/vendor/sinyo1015/autonumbering/src/AutoNumber.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/sinyo1015/autonumbering/src/Exception/StringLengthException.php",
-		"/home/sinyo/WebFolder/ste_online/application/libraries/AutoNumber.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/ConnectionInterface.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/filp/whoops/src/Whoops/Run.php",
-		"/home/sinyo/WebFolder/ste_online/application/config/hooks.php",
-		"/home/sinyo/WebFolder/ste_online/index.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php",
-		"/home/sinyo/WebFolder/ste_online/application/hooks/WhoopsHook.php",
-		"/home/sinyo/WebFolder/ste_online/application/controllers/LuthierController.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/Hook.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/phpunit/php-code-coverage/src/Exception/RuntimeException.php",
-		"/home/sinyo/WebFolder/ste_online/composer.json",
-		"/home/sinyo/WebFolder/autonumbering/src/AutoNumber.php"
+		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Schema/Blueprint.php"
 	],
 	"find":
 	{
@@ -728,6 +759,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"productAddSuccess",
+			"[]",
+			"['productAddSuccess']",
+			"product_image",
+			"image_name",
+			"br",
+			"=",
+			"exampleModal",
 			"2000",
 			"type=\"number\"",
 			"v.",
@@ -762,52 +801,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "application/controllers/api/products/v1/ListProduct.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2598,
+						"buffer_size": 1358,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2594,
-								2594
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1/admin",
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1062.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "application/routes/api.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2175,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								373,
+								373
 							]
 						],
 						"settings":
@@ -816,27 +827,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 485.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "application/config/database.php",
+					"buffer": 1,
+					"file": "application/controllers/admin/Products/Admin_List_Products.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5394,
+						"buffer_size": 383,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4265,
-								4265
+								207,
+								207
 							]
 						],
 						"settings":
@@ -844,70 +855,10 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1242.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "application/views/admin/categories/list_barang/list_barang.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14170,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3075.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "application/views/admin/categories/tambah_barang/add_product_admin.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6201,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5002,
-								5002
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1872.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -919,7 +870,7 @@
 	},
 	"input":
 	{
-		"height": 45.0
+		"height": 67.0
 	},
 	"layout":
 	{
@@ -990,7 +941,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 282.0,
+	"side_bar_width": 318.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

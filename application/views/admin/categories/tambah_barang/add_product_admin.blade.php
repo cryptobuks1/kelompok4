@@ -23,6 +23,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?= base_url("assets/css/select2-bootstrap4.min.css") ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url("assets/js/jquery.dynatable.js") ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url("assets/img-uploader/dist/image-uploader.min.css") ?>">
 @endsection
 
 @section('content')
@@ -54,7 +55,7 @@
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">        
-                    @component('admin.categories.tambah_barang.pelengkap.tambah_produk', ["name" => $name, "key" => $key, "kode_barang" => $kode_barang])
+                    @component('admin.categories.tambah_barang.pelengkap.tambah_produk', ["name" => $name, "key" => $key, "kode_barang" => $kode_barang, "flashdata" => $flashdata])
 
                     @endcomponent
                 </div>
@@ -70,7 +71,12 @@
     <script src="<?= base_url("assets/js/jquery.dynatable.js") ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="<?= base_url("assets/js/serializeJSON.js") ?>"></script>
+    <script src="<?= base_url("assets/img-uploader/dist/image-uploader.min.js"); ?>"></script>
     <script>
+
+        $('.input-images').imageUploader({
+            "imagesInputName" : "product_image"
+        });
 
         function isNumber(evt) {
             evt = (evt) ? evt : window.event;
@@ -132,6 +138,59 @@
             $('#eMessg').empty();
             ythis.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading, sedang menyimpan data...');
             let dataForm = $('#formProductAdd').serializeJSON();
+            var imageData = new FormData();
+
+            let ty = $('input[name="product_image[]"]').get(0).files.length;
+
+            for(var t = 0; t < ty; t++){
+                imageData.append('imageFile[]', $('input[name="product_image[]"]').get(0).files[t]);
+            }
+            imageData.append('kodeProduk', $('#kodeProd').val());
+
+            //imageData.append('datas', dataForm);
+
+            // const options = [{
+            //     method: 'post',
+            //     url: '</?= route('addProductAPI') ?>',
+            //     data: dataForm,
+            //     headers: {'Content-Type': 'multipart/form-data',
+            //               'X-Requested-With': 'XMLHttpRequest'}
+            //     },
+            //     {
+            //     method: 'post',
+            //     url: '</?= route('addProductAPIImage') ?>',
+            //     data: imageData,
+            //     headers: {'Content-Type': 'multipart/form-data',
+            //               'X-Requested-With': 'XMLHttpRequest'}
+            //     }]; 
+
+            // axios.all([
+            //       axios.request(options[ 0 ]),
+            //       axios.request(options[ 1 ])
+            // ]).then(axios.spread(function (res1, res2, res3) {
+                
+            // }))
+            // .catch(function (error) {
+            //     //handle error
+            //     console.log(error.response.status);
+            //     if(error.response.status === 400){
+            //         ythis.prop('disabled', false);
+            //         ythis.html('Simpan');
+                    
+
+            //         if(error.response.data.msg.length >= 1){
+            //             $('#eMessg').append("<li>"+error.response.data.msg+"</li>");
+            //         }else{
+            //             error.response.data.msg.forEach(function(i,e){
+            //                 $('#eMessg').append("<li>"+i+"</li>");
+            //             });    
+            //         }
+            //         msgAl.removeClass('d-none');
+            //         $('html, body').animate({scrollTop:(0)}, 750);
+            //     }
+            // });
+
+
             axios({
                 method: 'post',
                 url: '<?= route('addProductAPI') ?>',
@@ -140,8 +199,39 @@
                           'X-Requested-With': 'XMLHttpRequest'}
                 })
                 .then(function (response) {
-                    location.href = "<?= route('admin_add_products') ?>";
-                })
+                    //location.href = "</?= route('admin_add_products') ?>";
+                    if(response.status === 200){
+                            axios({
+                                method: 'post',
+                                url: '<?= route('addProductAPIImage') ?>',
+                                data: imageData,
+                                headers: {'Content-Type': 'multipart/form-data',
+                                          'X-Requested-With': 'XMLHttpRequest'}
+                                })
+                                .then(function (response) {
+                                    location.href = "<?= route('admin_add_products') ?>";
+                                })
+                                .catch(function (error) {
+                                    //handle error
+                                    console.log(error.response.status);
+                                    if(error.response.status === 400){
+                                        ythis.prop('disabled', false);
+                                        ythis.html('Simpan');
+                                        
+
+                                        if(error.response.data.msg.length >= 1){
+                                            $('#eMessg').append("<li>"+error.response.data.msg+"</li>");
+                                        }else{
+                                            error.response.data.msg.forEach(function(i,e){
+                                                $('#eMessg').append("<li>"+i+"</li>");
+                                            });    
+                                        }
+                                        msgAl.removeClass('d-none');
+                                        $('html, body').animate({scrollTop:(0)}, 750);
+                                    }
+                                });
+                        }
+                    })
                 .catch(function (error) {
                     //handle error
                     console.log(error.response.status);
@@ -161,9 +251,41 @@
                         $('html, body').animate({scrollTop:(0)}, 750);
                     }
                 });
+            });
 
-        });
 
+
+        //     axios({
+        //         method: 'post',
+        //         url: '</?= route('addProductAPIImage') ?>',
+        //         data: imageData,
+        //         headers: {'Content-Type': 'multipart/form-data',
+        //                   'X-Requested-With': 'XMLHttpRequest'}
+        //         })
+        //         .then(function (response) {
+        //             //location.href = "</?= route('admin_add_products') ?>";
+        //             console.log(response);
+        //         })
+        //         .catch(function (error) {
+        //             //handle error
+        //             console.log(error.response.status);
+        //             if(error.response.status === 400){
+        //                 ythis.prop('disabled', false);
+        //                 ythis.html('Simpan');
+                        
+
+        //                 if(error.response.data.msg.length >= 1){
+        //                     $('#eMessg').append("<li>"+error.response.data.msg+"</li>");
+        //                 }else{
+        //                     error.response.data.msg.forEach(function(i,e){
+        //                         $('#eMessg').append("<li>"+i+"</li>");
+        //                     });    
+        //                 }
+        //                 msgAl.removeClass('d-none');
+        //                 $('html, body').animate({scrollTop:(0)}, 750);
+        //             }
+        //         });
+        // });
 
     </script>
 @endsection

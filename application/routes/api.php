@@ -22,6 +22,7 @@ static $API_VERSION = 'v1';
 
 Route::group("api/$API_VERSION/product", function() use(&$API_VERSION){
 	Route::post('/add', "api/products/$API_VERSION/admin/AddProductAPI@postData")->name("addProductAPI");
+	Route::post('/addImage', "api/products/$API_VERSION/admin/AddProductAPI@postDataImage")->name("addProductAPIImage");
 	Route::post('/delete', "api/products/$API_VERSION/admin/DeleteProductAPI@delete")->name("deleteProductAPI");
 	Route::post('/edit', "api/products/$API_VERSION/admin/EditProductAPI@edit")->name("editProductAPI");
 	Route::get('/list', "api/products/$API_VERSION/ListProduct@index")->name("listProductAPI");
@@ -48,5 +49,14 @@ Route::group("api/$API_VERSION/user/", function() use(&$API_VERSION){
 
 	Route::post('ewallet/change_pin', "api/e_wallet/$API_VERSION/user/EwalletProvider@changePIN", ['middleware' => ['UserAPIAccessMiddleware', 'EPaymentPINAuth']]);
 });
+
+
+Route::group("api/$API_VERSION/ewallet/", function() use(&$API_VERSION){
+	Route::group("admin/",function() use(&$API_VERSION){
+		Route::post('reload', "api/e_wallet/$API_VERSION/admin/EwalletReload@reloadWallet")->name('ewallet_reload');
+
+	});
+});
+
 
 Route::get('testApi/', 'Welcome@apiTestMiddleware', ['middleware' => 'UserAPIAccessMiddleware']);

@@ -1,4 +1,4 @@
-<form id="formProductAdd">
+<form id="formProductAdd" enctype="multipart/form-data">
 	<input type="hidden" name="{{ $name }}" value="{{ $key }}">
 <div class="col-md-12">
 	<div class="alert alert-danger alert-dismissable d-none" id="errorMsg"> 
@@ -8,6 +8,14 @@
 			</ul>
 		</div>
 	</div>
+	
+	@if(@$flashdata['productAddSuccess'] != null)
+	<div class="alert alert-success alert-dismissable"> 
+		<div class="pl-4 pr-2">
+			{{$flashdata['productAddSuccess']}}
+		</div>
+	</div>
+	@endif
 	<div class="card">
 		<div class="card-header">
 			<strong class="card-title">Tambah Produk</strong>
@@ -130,6 +138,17 @@
 								<div class="input-group">
 									<div class="input-group-addon"><span>Buah</span></div>
 									<input class="form-control stokIn" type="number" min="1" name="stokBarang">
+								</div>
+						</fieldset>
+					</div>
+
+					<div class="col-sm-6">
+						<fieldset class="the-fieldset">
+							<legend class="the-legend">Upload Gambar</legend>
+							<div class="form-group">
+								<label class="form-control-label">Gambar Produk</label>
+								<div class="input-group">
+									<div class="input-images w-100"></div>
 								</div>
 						</fieldset>
 					</div>

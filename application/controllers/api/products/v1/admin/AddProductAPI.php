@@ -2,15 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Rakit\Validation\Validator;
+use Illuminate\Database\QueryException;
+use Intervention\Image\ImageManager;
 
 
 class AddProductAPI extends CI_Controller{
 	private $validator;
+	private $imageManager;
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('product/Product_Info');
 		$this->load->model('product/Product_Grosir');
+		$this->load->model('product/Product_Image');
 		$this->load->helper('response');
+		$this->load->helper('file');
+		$this->imageManager = new ImageManager(['driver' => 'imagick']);
 		$this->validator = new Validator([
 			'required' => ':attribute Harus diisi',
 			'required_with' => ':attribute & :attribute harus diisi',
@@ -75,6 +81,105 @@ class AddProductAPI extends CI_Controller{
 	}
 
 
+	public function postDataImage(){
+
+		$validation = $this->validator->make($_POST + $_FILES, [
+			'imageFile.*' => 'required|uploaded_file:0,5M,png,jpg,jpeg',
+			'kodeProduk' => 'required|min:3'
+		]);
+
+		$validation->validate();
+		if($validation->fails()){
+			response(400, 
+			["content_type" => 
+						["type" => 'application/json', "encoding" =>'utf-8'], 
+			"output" => json_encode(["msg" => $validation->errors()->all()])])->_display();
+			exit;
+		}
+
+		$uploadLocationImage = FCPATH . 'products/' . $this->input->post("kodeProduk");
+
+		$validate_image = ['upload_path' => $uploadLocationImage, 
+							'allowed_types' => 'jpg|jpeg|png',
+							'max_size' => 5120,
+							'file_ext_tolower' => true,
+							'encrypt_name' => true,
+							];
+		$this->load->library('upload', $validate_image);
+
+		if(!is_dir($uploadLocationImage)){
+				mkdir($uploadLocationImage);
+		}
+
+		$isSuccess = true;
+
+
+		try{
+
+			$checkIfExist = $this->Product_Image
+									->join('product_info', 'product_info.kode_barang', '=', 'product_image.kode_barang')
+									->where('product_image.kode_barang', '=', $this->input->post("kodeProduk"))
+									->count();
+
+			if($checkIfExist > 0){
+				throw new \Exception("Gambar untuk produk : ".$this->input->post("kodeProduk")." sudah ada");
+			}
+
+
+
+			for($i = 0; $i < count($_FILES['imageFile']['name']); $i++){
+				$_FILES['file']['name']       = $_FILES['imageFile']['name'][$i];
+				$_FILES['file']['type']       = $_FILES['imageFile']['type'][$i];
+				$_FILES['file']['tmp_name']   = $_FILES['imageFile']['tmp_name'][$i];
+				$_FILES['file']['error']      = $_FILES['imageFile']['error'][$i];
+				$_FILES['file']['size']       = $_FILES['imageFile']['size'][$i];
+
+				$this->upload->initialize($validate_image);
+
+				
+
+				if($this->upload->do_upload('file')){
+				     $imageData = $this->upload->data();
+				     $this->imageManager->make($uploadLocationImage . "/". $imageData['file_name'])->save($uploadLocationImage . "/". $imageData['file_name'], 50);
+				     $imageUpload = $this->Product_Image::create([
+				     					'kode_barang' => $this->input->post("kodeProduk"),
+				     					'image_name' => $imageData['file_name']
+				     				]);
+				     if(!$imageUpload->save()){
+				     	throw new \Exception("Gambar gagal diupload, File : ".$imageData['orig_name']);
+				     }
+				 }
+			}
+		}catch(QueryException $e){
+			delete_files($uploadLocationImage, true, false, 1);
+			$isSuccess = false;
+			response(400, 
+			["content_type" => 
+						["type" => 'application/json', "encoding" =>'utf-8'], 
+			"output" => json_encode(["msg" => "Produk ".$this->input->post("kodeProduk")." Belum diupload"])])->_display();
+			exit;
+		}catch(\Exception $e){
+			$isSuccess = false;
+			response(400, 
+			["content_type" => 
+						["type" => 'application/json', "encoding" =>'utf-8'], 
+			"output" => json_encode(["msg" => json_encode($e->getMessage())])])->_display();
+			exit;
+		}finally{
+			if($isSuccess){
+				$this->session->set_flashdata('productAddSuccess', "Produk berhasil ditambahkan");
+				response(200, 
+				["content_type" => 
+							["type" => 'application/json', "encoding" =>'utf-8'], 
+				"output" => json_encode(["msg" => "success"])])->_display();
+				exit;
+			}
+		}
+
+
+
+	}
+
 
 	public function postData(){
 		$inputs = json_decode($this->security->xss_clean($this->input->raw_input_stream), TRUE);
@@ -98,8 +203,6 @@ class AddProductAPI extends CI_Controller{
 		        unset($inputs["grosirPrice"][$key]);
 		    }
 		}
-
-
 
 
 		$validation->validate();
@@ -156,7 +259,7 @@ class AddProductAPI extends CI_Controller{
 			$prodInf2 = $this->Product_Info::where('kode_barang', '=', $inputs["kodeProduk"])->first();
 			if($prodInf != null){
 				throw new \Exception("Nama Produk tidak boleh sama");
-			}else if($prodInf2){
+			}else if($prodInf2 != null){
 				throw new \Exception("Kode Barang tidak boleh sama");
 			}else{
 
@@ -182,6 +285,7 @@ class AddProductAPI extends CI_Controller{
 						["content_type" => 
 									["type" => 'application/json', "encoding" =>'utf-8'], 
 						"output" => json_encode(["msg" => "success"])])->_display();
+						exit;
 					}else{
 						throw new \Exception("Failed, Please check log errors");
 					}		

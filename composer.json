@@ -20,7 +20,8 @@
 		"filp/whoops": "^2.7",
 		"luthier/luthier": "^1.0",
 		"rakit/validation": "^1.2",
-		"sinyo1015/autonumbering" : "1.1.2-alpha"
+		"sinyo1015/autonumbering" : "1.1.2-alpha",
+		"intervention/image": "^2.5"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
