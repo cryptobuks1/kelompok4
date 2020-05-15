@@ -2,4 +2,6 @@ application/migrations/*.php
 /application/migrations/*.php
 application/views/cache/*
 /application/views/cache/*
-
+/products/*
+products/*
+products/
