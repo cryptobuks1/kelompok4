@@ -22,8 +22,8 @@ class Upload extends CI_Controller{
 	            {
 	                $gbr = $this->upload->data();
 	                $gambar=$gbr['file_name']; //Mengambil file name dari gambar yang diupload
-					$judul=strip_tags($this->input->post('judul'));
-					$this->m_upload->simpan_upload($judul,$gambar);
+					$jenis=strip_tags($this->input->post('jenis'));
+					$this->m_upload->simpan_upload($jenis,$Deskripsi,$gambar);
 					echo "Upload Berhasil";
 				}else{
 	                echo "<script>alert('Gambar Gagal Upload. Gambar harus bertipe gif|jpg|png|jpeg|bmp!');history.go(-1);</script>";

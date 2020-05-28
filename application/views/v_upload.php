@@ -32,7 +32,6 @@
         Percetakan
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Cetak Banner</a>
           <a class="dropdown-item" href="#">Cetak Foto</a>
           <a class="dropdown-item" href="#">Cetak Biasa</a>
         </div>
@@ -63,11 +62,14 @@
 		<div class="col-sm-4 col-md-offset-4" style="margin:auto!important;">
 		<h4>Silahkan Unggah File Anda</h4>
 			<form class="form-horizontal" action="<?php echo base_url().'index.php/upload/upload_image'?>" method="post" enctype="multipart/form-data">
-			<div class="container">
+		
+    
+    
+    
+    	<div class="container">
 
   <select class="form-control" placeholder="Silahkan Pilih">
   <option>Cetak File</option>
-  <option>Cetak Banner</option>
   <option>Cetak Foto</option>
   
 </select>
@@ -84,8 +86,10 @@
 				</div>
 				
 				<div class="form-group">
-					<input type="file" name="filefoto" class="dropify" data-height="300">
+					<input type="file"  multiple="" name="filefoto" class="dropify" data-height="300">
 				</div>
+
+      
 				<div class="form-group">
 					<button class="btn btn-success" type="submit">Simpan</button>
 				</div>
