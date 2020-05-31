@@ -68,7 +68,7 @@
     
     	<div class="container">
 
-  <select class="form-control" placeholder="Silahkan Pilih">
+  <select class="form-control" name="jenis" placeholder="Silahkan Pilih">
   <option>Cetak File</option>
   <option>Cetak Foto</option>
   
@@ -80,13 +80,13 @@
 			
 			
 			<div class="form-group">
-      <textarea class="form-control" placeholder="Description" name="isi"></textarea>
+      <textarea class="form-control" placeholder="Description" name="Deskripsi"></textarea>
 
 
 				</div>
 				
 				<div class="form-group">
-					<input type="file"  multiple="" name="filefoto" class="dropify" data-height="300">
+					<input type="file"  name="filefoto[]" class="dropify"   multiple data-height="300">
 				</div>
 
       
