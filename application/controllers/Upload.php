@@ -24,7 +24,7 @@ class Upload extends CI_Controller{
 				$_FILES['file']['error'] = $_FILES['filefoto']['error'][$i];
 				$_FILES['file']['size'] = $_FILES['filefoto']['size'][$i];
 				$config['upload_path'] = str_replace('system', 'assets', BASEPATH).'/images/'; //path folder
-				$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+				$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp|pdf|zip|rar|doc|ppt|'; //type yang dapat diakses bisa anda sesuaikan
 				$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 				$config['file_name'] = $_FILES['filefoto']['name'][$i];
 				$this->load->library('upload',$config); 
