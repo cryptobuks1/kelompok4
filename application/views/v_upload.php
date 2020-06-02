@@ -6,10 +6,19 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/dropify/dropify.min.css'?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/style.css'?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap-grid.css'?>">
+  	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/file-upload-with-preview.css'?>">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" "></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" "></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+
+  <link href="https://transloadit.edgly.net/releases/uppy/v1.6.0/uppy.min.css" rel="stylesheet">
+ 
 	
 </head>
 <body >
@@ -86,8 +95,12 @@
 				</div>
 				
 				<div class="form-group">
-					<input type="file"  name="filefoto[]" class="dropify"   multiple data-height="300">
+					<input type="file"  name="filefoto[]"   class="dropify"    multiple data-height="300">
 				</div>
+        <div  id="drag-drop-area"></div>
+       
+
+        
 
       
 				<div class="form-group">
@@ -99,6 +112,25 @@
 <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/dropify/dropify.min.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/dropify/file-upload-with-preview.min.js'?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+
+
+
+ 
+    <script src="https://transloadit.edgly.net/releases/uppy/v1.6.0/uppy.min.js"></script>
+    <script>
+      var uppy = Uppy.Core()
+        .use(Uppy.Dashboard, {
+          inline: true,
+          target: '#drag-drop-area'
+        })
+        .use(Uppy.Tus, {endpoint: 'https://master.tus.io/files/'}) //you can put upload URL here, where you want to upload images
+ 
+      uppy.on('complete', (result) => {
+        console.log('Upload complete! We’ve uploaded these files:', result.successful)
+      })
+    </script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.dropify').dropify({
@@ -110,7 +142,57 @@
             }
 		});
 	});
-	
+  
+  
+
+  Dropzone.options.dropzoneFrom = {
+  autoProcessQueue: false,
+  acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
+  init: function(){
+   var submitButton = document.querySelector('#submit-all');
+   myDropzone = this;
+   submitButton.addEventListener("click", function(){
+    myDropzone.processQueue();
+   });
+   this.on("complete", function(){
+    if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+    {
+     var _this = this;
+     _this.removeAllFiles();
+    }
+    list_image();
+   });
+  },
+ };
+
+
+
+ function list_image()
+ {
+  $.ajax({
+  
+   success:function(data){
+    $('#preview').html(data);
+   }
+  });
+ }
+
+
+ $(document).on('click', '.remove_image', function(){
+  var name = $(this).attr('id');
+  $.ajax({
+   
+   method:"POST",
+   data:{name:name},
+   success:function(data)
+   {
+    list_image();
+   }
+  })
+ });
+
+
+
 </script>
 
 <!-- Footer -->
