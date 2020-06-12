@@ -134,7 +134,7 @@
                 $img = $('<img>', {src: src}).appendTo($container),
 
                 // Create the delete button
-                $button = $('<button>', {class: 'delete-image'}).appendTo($container),
+                $button = $('<button>', {class: 'delete-image delImgDel'}).appendTo($container),
 
                 // Create the delete icon
                 $i = $('<i>', {class: 'iui-close'}).appendTo($button);
@@ -212,6 +212,16 @@
                     $parent.parent().removeClass('has-files');
 
                 }
+
+                //Rusakkan sekali :voss 
+                try{
+                    let selector = 'input[name="'+plugin.settings.preloadedInputName + '[]"]';
+                    let idVal = $(this).parent().find(selector).val();
+                    deletImage(idVal);
+                }catch(err){
+                    // Do Nothing
+                }
+
 
             });
 

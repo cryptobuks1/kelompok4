@@ -6,6 +6,7 @@ class DeleteProductAPI extends CI_Controller{
 		parent::__construct();
 		$this->load->model("product/Product_Info");
 		$this->load->helper("response");
+		$this->load->helper("deletedir");
 	}
 
 	public function delete(){
@@ -13,7 +14,7 @@ class DeleteProductAPI extends CI_Controller{
 		$ids = $inputs["idBarang"];
 		try{
 			$result = $this->Product_Info::findOrFail($ids)->delete();
-
+			deletedir(FCPATH . "products/". $ids);
 			response(200, 
 			["content_type" => 
 						["type" => 'application/json', "encoding" =>'utf-8'], 

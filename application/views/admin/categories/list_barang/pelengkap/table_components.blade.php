@@ -11,6 +11,7 @@
 			                <th>Stok</th>
 			                <th>Harga</th>
 			                <th>Aksi</th>
+							<th class="d-none"></th>
 			            </tr>
 			        </thead>
 			        <tfoot>
@@ -22,6 +23,7 @@
 			        	    <th>Stok</th>
 			        	    <th>Harga</th>
 			        	    <th>Aksi</th>
+							<th class="d-none"></th>
 			        	</tr>
 			        </tfoot>
 			    </table>

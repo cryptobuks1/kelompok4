@@ -113,12 +113,24 @@
                                                                             </tr>
                                                                           </tbody>
                                                                     </table>
-                                                                </fieldset>     
-                                                </form>
+                                                                </fieldset>
 
+
+
+                                                                <fieldset class="the-fieldset mt-3">
+                                                                    <legend class="the-legend">Foto Produk</legend>
+                                                                    <div class="card p-2">
+                                                                        <div class="mt-1 ml-2 mb-3">
+                                                                          <button class="btn btn-info" id="addGambarEdit">
+                                                                            +Tambahkan Gambar
+                                                                          </button>
+                                                                        </div>
+                                                                        <div class="input-imagesEdit w-100"></div>
+                                                                    </div>
+                                                                </fieldset>
                                             </div>
                                         </div>
-
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

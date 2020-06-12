@@ -56,7 +56,8 @@ Route::group("admin", function() use(&$API_VERSION){
 
 	//User Route
 	Route::group('/ewallet', function(){
-		Route::get('/', "admin/E_Wallet/User_EWallet@index");
+		Route::get('/', "admin/E_Wallet/User_EWallet@index")->name('ewallet_index');
+		Route::get('/report', "admin/E_Wallet/User_EWallet@reportEWallet");
 	});
 });
 

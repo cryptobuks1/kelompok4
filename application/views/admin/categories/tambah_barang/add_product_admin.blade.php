@@ -287,5 +287,11 @@
         //         });
         // });
 
+        // $('#btnAdd').on('click', (e) => {
+        //     $('input[name="product_image[]"]').trigger('click');
+        //     console.log("clicked");
+        // });
+
+
     </script>
 @endsection

@@ -120,10 +120,14 @@ class EditProductAPI extends CI_Controller{
 				throw new \Exception("Terdapat duplikat harga input grosir :".$dups);
 			}
 
-			$compareHarga = $this->comparatorHarga($inputs["grosirPrice"]);
-			if($compareHarga != "" || $compareHarga != null){
-				throw new \Exception($compareHarga);
+
+			if($inputs["grosirPrice"] != null){
+				$compareHarga = $this->comparatorHarga($inputs["grosirPrice"]);
+				if($compareHarga != "" || $compareHarga != null){
+					throw new \Exception($compareHarga);
+				}
 			}
+
 
 
 			$sortFirst = $inputs["grosirPrice"];
@@ -170,7 +174,7 @@ class EditProductAPI extends CI_Controller{
 				response(400, 
 				["content_type" => 
 							["type" => 'application/json', "encoding" =>'utf-8'], 
-				"output" => json_encode(["msg" => json_encode($e->getMessage())])])->_display();
+				"output" => json_encode(["msg" => $e->getMessage()])])->_display();
 				exit;
 			}
 	}

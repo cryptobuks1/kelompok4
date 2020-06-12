@@ -26,7 +26,7 @@ class EwalletReload extends CI_Controller{
 
 		$validation = $this->validator->make($inputs, [
 			'nomor_hp' => 'required|min:9|max:17',
-			'nominal' => 'required|min:4|integer',
+			'nominal' => 'required|min:1|max:4',
 			'pin' => 'required|integer|min:6'
 		]);
 
@@ -45,10 +45,35 @@ class EwalletReload extends CI_Controller{
 					if($userExist->ewallet_activated != 0){
 						$userWallet = $this->User_Payment::where('username', '=', $userExist->username)->first();
 						if($userWallet != null){
-							if(((int)$inputs['nominal']) <= 0){
-								throw new Exception("Nomimal dilarang dibawah samadengan 0");
+							$nominal = 0;
+
+							switch($inputs['nominal']){
+								case "5k":
+									$nominal = 5000;
+								break;
+
+								case "10k":
+									$nominal = 10000;
+								break;
+
+								case "20k":
+									$nominal = 20000;
+								break;
+
+								case "50k":
+									$nominal = 50000;
+								break;
+
+								case "100k":
+									$nominal = 100000;
+								break;
+
+								default:
+									throw new \Exception("Nominal Tidak Tersedia");
+								break;
 							}
-							$getCurrentWallet = ((int)$userWallet->remain_balance) + ((int)$inputs['nominal']);
+
+							$getCurrentWallet = ((int)$userWallet->remain_balance + $nominal);
 								
 							$this->User_Payment::where('username', '=', $userExist->username)->update(['remain_balance' => $getCurrentWallet]);
 							$keyTrx = bin2hex($this->encryption->create_key(16));

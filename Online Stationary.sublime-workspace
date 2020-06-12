@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"image",
+				"imageManager"
+			],
+			[
+				"del",
+				"delImg"
+			],
+			[
+				"delete",
+				"deletedImage"
+			],
+			[
 				"che",
 				"checkIfExist"
 			],
@@ -26,10 +38,6 @@
 			[
 				"data",
 				"dataForm"
-			],
-			[
-				"image",
-				"imageData"
 			],
 			[
 				"json",
@@ -468,20 +476,17 @@
 	"buffers":
 	[
 		{
-			"file": "application/controllers/api/products/v1/ListProduct.php",
 			"settings":
 			{
-				"buffer_size": 1358,
-				"encoding": "UTF-8",
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/controllers/admin/Products/Admin_List_Products.php",
+			"file": "application/helpers/response_helper.php",
 			"settings":
 			{
-				"buffer_size": 383,
-				"encoding": "UTF-8",
+				"buffer_size": 393,
 				"line_ending": "Unix"
 			}
 		}
@@ -497,6 +502,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"instak",
+				"Package Control: Install Package"
+			],
 			[
 				"disc",
 				"Sublimecord: Connect to Discord"
@@ -578,42 +587,41 @@
 	},
 	"expanded_folders":
 	[
-		"/home/sinyo/WebFolder/ste_online/",
-		"/home/sinyo/WebFolder/ste_online//application",
-		"/home/sinyo/WebFolder/ste_online//application/config",
-		"/home/sinyo/WebFolder/ste_online//application/controllers",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/admin",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/admin/E_Wallet",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/admin/Products",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/auth",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/auth/v1",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/auth/v1/user",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet/v1",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/e_wallet/v1/user",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1",
-		"/home/sinyo/WebFolder/ste_online//application/controllers/api/products/v1/admin",
-		"/home/sinyo/WebFolder/ste_online//application/models",
-		"/home/sinyo/WebFolder/ste_online//application/models/product",
-		"/home/sinyo/WebFolder/ste_online//application/routes",
-		"/home/sinyo/WebFolder/ste_online//application/views",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/list_barang",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/list_barang/pelengkap",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/tambah_barang",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/tambah_barang/pelengkap",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/categories/user_ewallet/pelengkap",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/components",
-		"/home/sinyo/WebFolder/ste_online//application/views/admin/master",
-		"/home/sinyo/WebFolder/ste_online//bin",
-		"/home/sinyo/WebFolder/ste_online//products"
+		"/home/sinyo/WebFolder/ste/",
+		"/home/sinyo/WebFolder/ste//application",
+		"/home/sinyo/WebFolder/ste//application/controllers",
+		"/home/sinyo/WebFolder/ste//application/controllers/api",
+		"/home/sinyo/WebFolder/ste//application/controllers/api/products",
+		"/home/sinyo/WebFolder/ste//application/controllers/api/products/v1",
+		"/home/sinyo/WebFolder/ste//application/controllers/api/products/v1/admin",
+		"/home/sinyo/WebFolder/ste//application/helpers",
+		"/home/sinyo/WebFolder/ste//application/routes",
+		"/home/sinyo/WebFolder/ste//application/views",
+		"/home/sinyo/WebFolder/ste//application/views/admin",
+		"/home/sinyo/WebFolder/ste//application/views/admin/categories",
+		"/home/sinyo/WebFolder/ste//application/views/admin/categories/list_barang",
+		"/home/sinyo/WebFolder/ste//application/views/admin/categories/list_barang/pelengkap",
+		"/home/sinyo/WebFolder/ste//application/views/admin/categories/tambah_barang",
+		"/home/sinyo/WebFolder/ste//application/views/admin/categories/tambah_barang/pelengkap",
+		"/home/sinyo/WebFolder/ste//assets",
+		"/home/sinyo/WebFolder/ste//assets/img-uploader",
+		"/home/sinyo/WebFolder/ste//assets/img-uploader/src",
+		"/home/sinyo/WebFolder/ste//products",
+		"/home/sinyo/WebFolder/ste//products/BAR_0023",
+		"/home/sinyo/WebFolder/ste//products/BAR_0024"
 	],
 	"file_history":
 	[
+		"/home/sinyo/WebFolder/ste/application/views/admin/categories/list_barang/pelengkap/modal_components.blade.php",
+		"/home/sinyo/WebFolder/ste/assets/img-uploader/src/image-uploader.js",
+		"/home/sinyo/WebFolder/ste/application/views/admin/categories/tambah_barang/add_product_admin.blade.php",
+		"/home/sinyo/WebFolder/ste/application/config/config.php",
+		"/home/sinyo/WebFolder/ste/application/routes/api.php",
+		"/home/sinyo/WebFolder/ste/application/controllers/api/products/v1/admin/ImageProductDelAPI.php",
+		"/home/sinyo/WebFolder/ste/application/views/admin/categories/list_barang/list_barang.blade.php",
+		"/home/sinyo/WebFolder/ste/application/views/cache/13e7ee7e57e7a55936257eef5335cc8b5baabe05.php",
+		"/home/sinyo/WebFolder/ste/application/controllers/api/products/v1/ListProduct.php",
+		"/home/sinyo/WebFolder/ste/application/controllers/admin/Products/Admin_List_Products.php",
 		"/home/sinyo/WebFolder/ste_online/application/controllers/api/products/v1/admin/AddProductAPI.php",
 		"/home/sinyo/WebFolder/ste_online/application/routes/api.php",
 		"/home/sinyo/WebFolder/ste_online/application/models/product/Product_Image.php",
@@ -731,21 +739,11 @@
 		"/home/sinyo/WebFolder/jastipJP/vendor/laravel/ui/auth-backend/RegistersUsers.php",
 		"/home/sinyo/WebFolder/jastipJP/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php",
 		"/home/sinyo/WebFolder/jastipJP/app/Providers/RouteServiceProvider.php",
-		"/home/sinyo/WebFolder/jastipJP/config/session.php",
-		"/home/sinyo/WebFolder/jastipJP/.htaccess",
-		"/home/sinyo/WebFolder/jastipJP/.env",
-		"/home/sinyo/WebFolder/ste_online/application/controllers/Welcome.php",
-		"/home/sinyo/WebFolder/ste_online/application/models/user/account/Login_Process.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/rakit/validation/src/Validation.php",
-		"/home/sinyo/WebFolder/ste_online/application/config/config.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/luthier/luthier/src/RouteBuilder.php",
-		"/home/sinyo/WebFolder/ste_online/application/controllers/user/Register.php",
-		"/home/sinyo/WebFolder/ste_online/application/controllers/api/auth/v1/user/RegisterUserAPI.php",
-		"/home/sinyo/WebFolder/ste_online/vendor/illuminate/database/Schema/Blueprint.php"
+		"/home/sinyo/WebFolder/jastipJP/config/session.php"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -759,6 +757,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"imageFile",
+			"', ",
+			"input-imagesEdit",
 			"productAddSuccess",
 			"[]",
 			"['productAddSuccess']",
@@ -806,25 +807,23 @@
 			[
 				{
 					"buffer": 0,
-					"file": "application/controllers/api/products/v1/ListProduct.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1358,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								373,
-								373
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -835,19 +834,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "application/controllers/admin/Products/Admin_List_Products.php",
-					"semi_transient": false,
+					"file": "application/helpers/response_helper.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 383,
+						"buffer_size": 393,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								207,
-								207
+								360,
+								332
 							]
 						],
 						"settings":
@@ -866,7 +865,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 31.0
 	},
 	"input":
 	{
@@ -903,7 +902,7 @@
 	"project": "Online Stationary.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 58.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -941,7 +940,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 318.0,
+	"side_bar_width": 212.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

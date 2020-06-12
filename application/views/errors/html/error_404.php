@@ -94,7 +94,7 @@ p {
 <body>
 	<div id="">
 		<div id="wrapper">
-			<img src="http://localhost/ste_online/assets/f404/404.jpg" alt="">
+			<img src="http://localhost/ste/assets/f404/404.jpg" alt="">
 		</div>
 		<p align="center">Bro, Balik ke awal aja. Ga ada apa2 disini :p.</p>
 	</div>

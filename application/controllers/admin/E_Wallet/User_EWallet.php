@@ -9,4 +9,8 @@ class User_EWallet extends CI_Controller{
 	public function index(){
 		return view('admin.categories.user_ewallet.ewallet_index');
 	}
+
+	public function reportEWallet(){
+		return view('admin.categories.user_ewallet.ewallet_report');
+	}
 }

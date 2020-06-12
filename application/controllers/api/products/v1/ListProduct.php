@@ -6,11 +6,16 @@ class ListProduct extends CI_Controller{
 		parent::__construct();
 		$this->load->model("product/Product_Grosir");
 		$this->load->model("product/Product_Info");
+		$this->load->model("product/Product_Image");
 		$this->load->helper('response');
 		$this->load->model("product/ProductLists");
 	}
 
 	public function index(){
+
+		$config = [
+			"baseUrlImage" => base_url("products/")
+		];
 
 		$allData = [];
 		$datas = $this->Product_Info::distinct()->get();
@@ -23,6 +28,13 @@ class ListProduct extends CI_Controller{
 			$u->hargaSatuan = $key["harga_satuan"];
 			$u->stok = $key["stok"];
 			$u->grosir = [];
+			$u->images = [];
+			$img = $this->Product_Image::where('kode_barang', '=', $key["kode_barang"])->get();
+
+
+			foreach($img as $imgRep){
+				array_push($u->images, $imgRep->image_name);
+			}
 			$datas2 = $this->Product_Grosir::where("kode_barang", "=", $key["kode_barang"])->get();
 			foreach($datas2 as $key2){
 				array_push($u->grosir, ["minimum_pembelian" => $key2["min_pcs"], "harga" => $key2["prices"]]);
@@ -37,7 +49,7 @@ class ListProduct extends CI_Controller{
 		response(200, 
 		["content_type" => 
 					["type" => 'application/json', "encoding" =>'utf-8'], 
-		"output" => json_encode(["data" => $allData])])->_display();
+		"output" => json_encode(["config" => $config, "data" => $allData])])->_display();
 		exit;
 
 		// response(200, 

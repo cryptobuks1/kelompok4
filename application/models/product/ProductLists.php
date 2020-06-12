@@ -8,6 +8,8 @@ class ProductLists{
 	public $hargaSatuan;
 	public $stok;
 	public $grosir;
+	public $images;
+	public $deskripsi;
 
 	public function __get($property) {
 	  if (property_exists($this, $property)) {
